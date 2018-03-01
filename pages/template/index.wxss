@@ -1,0 +1,66 @@
+/* pages/template/index.wxss */
+page{
+  background-color: #f8f8f8;
+}
+.shop-img image{
+  width: 100%;
+  height: 560rpx;
+}
+.shop-img view{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.shop-img text{
+  display: block;
+  padding: 22rpx;
+  font-size: 30rpx;
+  color: #333;
+  background-color: #fff;
+}
+.shop-img .red{
+  color: #F20A30;
+}
+.shop-desc{
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.shop-t{
+  padding: 22rpx;
+  font-size: 24rpx;
+  color:#828282;
+  border-bottom: 1px solid #eee;
+}
+.s-text{
+  padding: 22rpx;
+  margin-bottom: 70rpx;
+}
+.s-text view{
+  font-size: 26rpx;
+  color: #333;
+  margin-bottom: 15rpx;
+  margin-top: 15rpx;
+}
+.bottom{
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+.bottom text{
+  flex: 1;
+  text-align: center;
+  font-size: 30rpx;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.bottom text:first-child{
+  color: #0B8031;
+  background-color: #fff;
+}
+.bottom text:last-child{
+  background-color: #0B8031;
+  color: #fff;
+}

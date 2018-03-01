@@ -1,0 +1,79 @@
+/* pages/index/zixun.wxss */
+page{
+  background-color: #f8f8f8;
+}
+.fuwu{
+  color: #828282;
+  font-size: 24rpx;
+  padding: 30rpx;
+}
+.c-num{
+  padding: 30rpx;
+  background-color: #fff;
+}
+.c-num text{
+  display: block;
+  font-size: 30rpx;
+  color: #0B8031;
+}
+.c-num text:first-child{
+  margin-bottom: 15rpx;
+}
+.sh-zi{
+  color: #828282;
+  font-size: 24rpx;
+  padding: 30rpx;
+}
+.item{
+  display: flex;
+  align-items: center;
+  padding:20rpx 30rpx;
+  color: #828282;
+  font-size: 30rpx;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+}
+.item:first-child{
+  border-top: 1px solid #eee;
+}
+.i-red{
+  color: #F20A30;
+  flex: 0 0 10rpx;
+}
+.i-name{
+  flex: 0 0 70rpx;
+}
+.item input{
+  text-align: right;
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+.bzh{
+  padding:20rpx 30rpx;
+    background-color: #fff;
+}
+.bzh view{
+  font-size: 30rpx;
+  color: #828282;
+}
+textarea{
+  border:1px solid #eee;
+  padding: 20rpx;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.submit{
+  padding: 60rpx;
+}
+.submit text{
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #0B8031;
+  display: block;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  border-radius: 5px;
+}

@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view>
+  <swiper class="swiper" indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"       indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class='graid'>
+  <view class='item' wx:for="{{garid}}" wx:key="index">
+    <view class='{{item.classname}}' data-classname='{{item.classname}}' bindtap='go'>
+      <view><image src="{{item.imgurl}}"/></view>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>
+<view class='concat'>
+  <view class='phone'>
+    <image src="../../img/icon-dianhua@2x.png" />
+    <text>全国热线:</text>
+  </view>
+  <view class='p-num'>
+    <text>0833-3858899</text>
+    <text>13388260303</text>
+  </view>
+</view>

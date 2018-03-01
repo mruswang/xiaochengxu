@@ -1,0 +1,38 @@
+/* pages/index/about.wxss */
+.a-bg image{
+  width: 100%;
+  height: 239rpx;
+}
+.item-bg-green{
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+.item-bg-green text{
+  background-color: #0B8031;
+  color: #fff;
+  padding: 15rpx 50rpx;
+  display: inline-block;
+  font-size: 30rpx;
+  box-shadow:  1px 1px 5px #0B8031;
+  border-radius: 1px;
+}
+.text-info{
+  padding: 10rpx 30rpx;
+}
+.text-info view{
+  font-size: 26rpx;
+  color: #333;
+  text-indent: 50rpx;
+  margin-bottom: 30rpx;
+}
+.concat{
+  padding: 10rpx 30rpx;
+  margin-bottom: 30rpx;
+}
+.concat text{
+  display: block;
+  font-size: 26rpx;
+  color: #0B8031;
+  margin-bottom: 20rpx;
+}

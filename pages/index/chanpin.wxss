@@ -1,0 +1,69 @@
+/* pages/index/chanpin.wxss */
+page{
+  background-color: #f8f8f8;
+}
+.chan-top{
+  text-align: right;
+  padding: 30rpx;
+  background-color: #fff;
+  font-size: 24rpx;
+  position: relative;
+}
+.chan-now{
+  color: #0B8031;
+}
+.chan-top image{
+  width: 24rpx;
+  height: 16rpx;
+  margin-left: 15rpx;
+}
+.chan-category{
+  position: absolute;
+  width: 220rpx;
+  top: 80rpx;
+  right: 30rpx;
+  background-color: #fff;
+  text-align: center;
+}
+.chan-category text{
+  display: block;
+  padding: 20rpx;
+  border-bottom: 1px solid #eee;
+  color: #828282;
+}
+.chan-category text:last-child{
+  border-bottom: none;
+}
+.chan-green{
+  color: #0B8031 !important;
+}
+.graid{
+  margin-top: 20rpx;
+}
+.graid:after{
+  content: '';
+  display: block;
+  visibility: none;
+  clear: both;
+}
+.item{
+  float: left;
+  text-align: center;
+  width: 50%;
+  padding: 5rpx;
+  box-sizing: border-box;
+}
+.item-box{
+  background-color: #fff;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.item-box image{
+  width: 330rpx;
+  height: 280rpx;
+}
+.item text{
+  font-size: 30rpx;
+  color: #333333;
+  display: block;
+}

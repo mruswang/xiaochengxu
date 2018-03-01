@@ -1,0 +1,104 @@
+/* pages/index/yuyue.wxss */
+page{
+  background-color: #f8f8f8;
+}
+.fuwu{
+  color: #828282;
+  font-size: 24rpx;
+  padding: 30rpx;
+}
+.fuwu-text{
+  padding: 30rpx;
+  background-color: #fff;
+  color: #333333;
+  font-size: 30rpx;
+}
+.fuwu-red{
+  padding: 30rpx;
+  background-color: #fff;
+  color: #F20A30;
+  font-size: 30rpx;
+}
+
+.sh-zi{
+  color: #828282;
+  font-size: 24rpx;
+  padding: 30rpx;
+}
+.item{
+  display: flex;
+  align-items: center;
+  padding:20rpx 30rpx;
+  color: #828282;
+  font-size: 30rpx;
+  border-bottom: 1px solid #eee;
+  background-color: #fff;
+}
+.item:first-child{
+  border-top: 1px solid #eee;
+}
+.i-red{
+  color: #F20A30;
+  flex: 0 0 10rpx;
+}
+.i-name{
+  flex: 0 0 70rpx;
+}
+.item input{
+  text-align: right;
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+.item picker{
+  text-align: right;
+  flex: 1;
+  font-size: 30rpx;
+  color: #333;
+}
+.item picker text{
+  color: #828282;
+  font-size: 30rpx;
+}
+.xi-address{
+   padding:20rpx 30rpx;
+   background-color: #fff;
+}
+.bzh{
+  padding:20rpx 30rpx;
+    background-color: #fff;
+}
+.bzh view{
+  font-size: 30rpx;
+  color: #828282;
+}
+textarea{
+  border:1px solid #eee;
+  padding: 20rpx;
+  margin-top: 30rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+.submit{
+  padding: 60rpx;
+  display: flex;
+  align-items: center;
+}
+.submit text{
+  text-align: center;
+  font-size: 30rpx;
+  display: block;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+  border-radius: 5px;
+  flex: 1;
+  margin: 15rpx;
+}
+.submit text:first-child{
+  color: #828282;
+  background-color: #BDBDBD;
+}
+.submit text:last-child{
+  color: #fff;
+  background-color: #0B8031;
+}

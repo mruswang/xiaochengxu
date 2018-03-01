@@ -1,0 +1,27 @@
+/* pages/index/hdetails.wxss */
+.details{
+  padding: 30rpx 26rpx;
+  border-bottom:1px solid #eee;
+}
+.d-title{
+  color: #333;
+  font-size: 38rpx;
+}
+.d-desc{
+  color:#828282;
+  font-size: 22rpx;
+  margin-top: 15rpx;
+}
+.d-text{
+  padding: 30rpx 26rpx;
+}
+.d-text view{
+  font-size: 30rpx;
+  color: #333;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.d-text image{
+  width: 100%;
+  height: 400rpx;
+}

@@ -1,0 +1,20 @@
+<view class='daili'>
+  <image src='../../img/daili-bg.png' />
+   <form bindsubmit="formSubmit" wx:if="{{isSubmit === false}}">
+    <view class='f-item'>
+      <text>姓名：</text>
+      <input placeholder='请输入你的真实姓名' placeholder-style='font-size:14px'/>
+    </view>
+    <view class='f-item'>
+      <text>电话：</text>
+      <input placeholder='请输入你的联系方式' placeholder-style='font-size:14px'/>
+    </view>
+    <view class="btn-area">
+      <button formType="submit">提 交</button>
+    </view>
+  </form> 
+  <view class='yi' wx:else>
+    <text>您已成功提交申请!</text>
+    <text>工作人员将会尽快与您联系～</text> 
+  </view>
+</view>

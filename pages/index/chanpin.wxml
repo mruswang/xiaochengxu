@@ -1,0 +1,14 @@
+<view class='chan-top'>
+  <view class='chan-now' bindtap='showCategory'>{{selectName}}<image src='../../img/icon-xiala@2x.png'/></view>
+  <view class='chan-category' wx:if="{{categoryShow}}">
+    <text wx:for="{{category}}" wx:key="index" class="{{currentid === item.id ? 'chan-green': ''}}" data-item='{{item}}' bindtap="selectCategory">{{item.name}}</text>
+  </view>
+</view>
+<view class='graid'>
+  <view class='item' wx:for="{{list}}" wx:key="{{index}}">
+    <view class='item-box' data-id='{{item.id}}'  bindtap='selectItem'>
+      <image src="{{item.imgurl}}"/>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</view>

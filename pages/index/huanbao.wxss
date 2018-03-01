@@ -1,0 +1,28 @@
+/* pages/index/huanbao.wxss */
+page{
+  background-color: #f8f8f8;
+}
+.h-bg image{
+  width: 100%;
+  height: 239rpx;
+}
+.item{
+  padding: 20rpx;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.i-title{
+  font-size: 30rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+.i-desc{
+  font-size: 22rpx;
+  color: #828282;
+}
+.i-desc text{
+  margin-right: 30rpx;
+}
+.i-desc text:last-child{
+  margin-right: 0;
+}

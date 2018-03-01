@@ -1,0 +1,44 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/order/order",
+    "pages/index/daili",
+    "pages/index/about",
+    "pages/index/huanbao",
+    "pages/index/hdetails",
+    "pages/index/chanpin",
+    "pages/index/cpdetails",
+    "pages/index/zixun",
+    "pages/index/jqjc",
+    "pages/index/jqzl",
+    "pages/index/yuyue",
+    "pages/template/index",
+    "pages/order/odetails"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#0B8031",
+    "navigationBarTitleText": "益民环境治理",
+    "navigationBarTextStyle":"#fff"
+  },
+  "tabBar": {
+    "color": "#777777",
+    "selectedColor": "#0B8031",
+    "backgroundColor": "#fff",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./img/icon-shouye@2x.png",
+        "selectedIconPath": "./img/icon-shouye-green@2x.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "我的订单",
+        "iconPath": "./img/icon-wodexingdan@2x.png",
+        "selectedIconPath": "./img/icon-wodexingdan-green@2x.png"
+      }
+    ]
+  }
+}

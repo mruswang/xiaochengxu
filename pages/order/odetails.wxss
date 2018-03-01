@@ -1,0 +1,87 @@
+/* pages/order/odetails.wxss */
+page{
+  background-color: #f8f8f8;
+}
+.d-top{
+  color: #fff;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30rpx;
+}
+.d-top image{
+  width: 130rpx;
+  height: 100rpx;
+}
+.d-red{
+  background-color: #F20A30;
+}
+.d-yellow{
+  background-color: #F2B30A;
+}
+.d-green{
+  background-color: #0B8031;
+}
+.bg-gary{
+  color: #828282;
+  font-size: 24rpx;
+  padding: 20rpx;
+}
+.p-info{
+  padding: 20rpx;
+  background-color: #fff;
+}
+.p-info text{
+  display: block;
+  color:#333;
+}
+.p-info text:first-child{
+   font-size: 30rpx;
+   margin-bottom: 20rpx;
+}
+.p-info text:last-child{
+   font-size: 24rpx;
+}
+.shop{
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background-color: #EBEBEB;
+}
+.shop image{
+  width: 230rpx;
+  height: 195rpx;
+  margin-right: 20rpx;
+}
+.shop-right text{
+  display: block;
+  font-size: 30rpx;
+  color: #333;
+}
+.shop-right text:last-child{
+  color: #F20A30;
+  padding-top: 80rpx;
+}
+.o-info{
+  padding: 20rpx;
+  font-size: 24rpx;
+  color: #333333;
+  background-color: #fff;
+}
+.o-info text{
+  display: block;
+  margin-bottom: 25rpx;
+}
+.o-info text:last-child{
+  margin-bottom: 0;
+}
+.bottom{
+  font-size: 24rpx;
+  color: #828282;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.bottom text{
+  color: #0B8031;
+}

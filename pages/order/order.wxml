@@ -1,0 +1,32 @@
+<view wx:if="{{islogin}}">
+  <view class='o-nav'>
+    <text wx:for="{{navlist}}" wx:key="{{index}}" class="{{navid === item.status ? 'o-active': ''}}" bindtap='selectNav' data-status='{{item.status}}'>{{item.name}}</text>
+  </view>
+</view>
+<view class='no-login' wx:else>
+  <image class='tou' src="../../img/icon-dengluzhuce@2x.png"/>
+  <view>登录／注册</view>
+  <image class='bottom' src="../../img/img-dengluzhuce-bk@2x.png"/>
+</view>
+<view>
+  <view class='item'>
+    <view class='i-top'>
+      <text>订单编号：136498102170937</text>
+      <text class='i-red'>未付款</text>
+    </view>
+    <view class='i-middle'>
+      <view>
+        <image src="../../img/img-banner-aboutus@2x.png"/>
+      </view>
+      <view class='i-m-right'>
+        <text>甲醛治理</text>
+        <text>¥115</text>
+      </view>
+    </view>
+    <view class='i-bottom'>
+        <text bindtap='pay' class='pay'>立即支付</text>
+        <text bindtap='check' class='check'>查看详情</text>
+      </view>
+  </view>
+</view>
+

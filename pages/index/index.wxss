@@ -1,0 +1,105 @@
+/**index.wxss**/
+.swiper {
+ height: 350rpx;
+ width: 100%;
+}
+.swiper image {
+ height: 100%;
+ width: 100%;
+}
+.graid{
+  padding: 20rpx 25rpx;
+}
+.graid:after{
+  content: '';
+  display: block;
+  visibility: none;
+  clear: both;
+}
+.item{
+  float: left;
+  text-align: center;
+  width: 33.333%;
+  padding: 5rpx;
+  box-sizing: border-box;
+}
+.item text{
+  font-size: 30rpx;
+  color: #fff;
+}
+.item>view{
+  height: 220rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.item>view view{
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-j{
+  background-color: #24CEB1;
+}
+.item-j image{
+  width: 83rpx;
+  height: 93rpx;
+}
+.item-jq{
+  background-color: #4ADA83;
+}
+.item-jq image{
+  width: 68rpx;
+  height: 62rpx;
+}
+.item-c{
+  background-color: #FDBF38;
+}
+.item-c image{
+  width: 69rpx;
+  height: 69rpx;
+}
+.item-h{
+  background-color: #FCAD37;
+}
+.item-h image{
+  width: 64rpx;
+  height: 76rpx;
+}
+.item-g{
+  background-color: #29CCE3;
+}
+.item-g image{
+  width: 73rpx;
+  height: 68rpx;
+}
+.item-d{
+  background-color: #37B9FF;
+}
+.item-d image{
+  width: 73rpx;
+  height: 68rpx;
+}
+.concat{
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: center;
+  font-size: 30rpx;
+}
+.phone image{
+  width: 36rpx;
+  height: 26rpx;
+  margin-right: 10rpx;
+}
+.p-num{
+  margin-left: 10rpx;
+}
+.p-num text{
+  display: block;
+  color: #0B8031;
+}
+.p-num text:last-child{
+  margin-top: 10rpx;
+}
