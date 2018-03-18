@@ -1,18 +1,39 @@
 // pages/index/hdetails.js
+let common = require('../../utils/common.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    content: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     console.log(options)
+    let _this = this;
+    let _id = options.id
+    wx.request({
+      url: common.api + 'knowledge/detail', //仅为示例，并非真实的接口地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      data: {
+        id: _id
+      },
+      success: function (res) {
+        wx.hideLoading()
+        _this.setData({
+          content: res.data.data[0]
+        })
+      }
+    })
   },
 
   /**

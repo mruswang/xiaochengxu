@@ -7,7 +7,7 @@
 <view class='graid'>
   <view class='item' wx:for="{{list}}" wx:key="{{index}}">
     <view class='item-box' data-id='{{item.id}}'  bindtap='selectItem'>
-      <image src="{{item.imgurl}}"/>
+      <image src="{{item.pic}}"/>
       <text>{{item.name}}</text>
     </view>
   </view>

@@ -67,13 +67,13 @@ textarea{
 .submit{
   padding: 60rpx;
 }
-.submit text{
+.submit button{
   text-align: center;
   color: #fff;
   font-size: 30rpx;
   background-color: #0B8031;
   display: block;
-  padding-top: 30rpx;
-  padding-bottom: 30rpx;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
   border-radius: 5px;
 }

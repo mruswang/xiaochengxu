@@ -3,11 +3,11 @@
    <form bindsubmit="formSubmit" wx:if="{{isSubmit === false}}">
     <view class='f-item'>
       <text>姓名：</text>
-      <input placeholder='请输入你的真实姓名' placeholder-style='font-size:14px'/>
+      <input placeholder='请输入你的真实姓名' name='nickname' placeholder-style='font-size:14px'/>
     </view>
     <view class='f-item'>
       <text>电话：</text>
-      <input placeholder='请输入你的联系方式' placeholder-style='font-size:14px'/>
+      <input placeholder='请输入你的联系方式' name='phone' placeholder-style='font-size:14px'/>
     </view>
     <view class="btn-area">
       <button formType="submit">提 交</button>

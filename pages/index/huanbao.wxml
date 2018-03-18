@@ -4,6 +4,6 @@
 <view class='text-info'>
   <view class='item' wx:for="{{list}}" wx:key="index" data-id='{{item.id}}' bindtap='go'>
     <view class='i-title'>{{item.title}}</view>
-    <view class='i-desc'><text class='i-lai'>来源：{{item.lai}}</text><text class='i-author'>作者：{{item.author}}</text><text class='i-time'>发表时间：{{item.time}}</text></view>
+    <view class='i-desc'><!--<text class='i-lai'>来源：{{item.lai}}</text>--><text class='i-author'>作者：{{item.author}}</text><text class='i-time'>发表时间：{{item.time}}</text></view>
   </view>
 </view>

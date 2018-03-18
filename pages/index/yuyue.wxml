@@ -6,18 +6,19 @@
   <view class='fuwu'>服务金额</view>
   <view class='fuwu-red'>¥115</view>
 </view>
+<form bindsubmit="formSubmit">
 <view>
   <view class='sh-zi'>联系信息</view>
   <view>
     <view class='item'>
       <text class='i-name'>姓名</text>
       <text class='i-red'>*</text>
-      <input placeholder='请输入您的姓名' placeholder-style='font-size:28rpx;'/>
+      <input placeholder='请输入您的姓名' name="nickname" placeholder-style='font-size:28rpx;'/>
     </view>
     <view class='item'>
       <text class='i-name'>电话</text>
       <text class='i-red'>*</text>
-      <input placeholder='请输入联系电话' placeholder-style='font-size:28rpx;'/>
+      <input placeholder='请输入联系电话' name="phone" placeholder-style='font-size:28rpx;'/>
     </view>
     <view class='item'>
       <text class='i-name'>地址</text>
@@ -30,15 +31,16 @@
       </picker>
     </view>
     <view class='xi-address'>
-      <input placeholder='请输入具体服务地址' placeholder-style='font-size:28rpx;'/>
+      <input placeholder='请输入具体服务地址' name="address" placeholder-style='font-size:28rpx;'/>
     </view>
     <view class='bzh'>
       <view>备注</view>
-      <textarea placeholder='请输入采购意向简述,最多150字。' placeholder-style='font-size:28rpx;'></textarea>
+      <textarea placeholder='请输入采购意向简述,最多150字。' name="desc" placeholder-style='font-size:28rpx;'></textarea>
     </view>
   </view>
 </view>
 <view class='submit'>
 <text bindtap='cancle'>取消</text>
-<text bindtap='pay'>去支付</text>
+<button  formType="submit">去支付</button >
 </view>
+</form>

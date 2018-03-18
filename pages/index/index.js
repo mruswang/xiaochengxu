@@ -25,15 +25,21 @@ Page({
       { "classname": 'item-d', 'imgurl': '../../img/icon-zhaodaili@2x.png', 'name': '诚招代理' }
     ]
   },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    console.log(wx.getStorageSync('use_id'))
+  },
   go:function(e){
     let nowclass = e.currentTarget.dataset.classname
     if (nowclass === 'item-j') {
       wx.navigateTo({
-        url: 'jqjc'
+        url: 'jqjc?id=1'
       })
     } else if (nowclass === 'item-jq') {
       wx.navigateTo({
-        url: 'jqzl'
+        url: 'jqzl?id=2'
       })
     } else if (nowclass === 'item-c') {
       wx.navigateTo({

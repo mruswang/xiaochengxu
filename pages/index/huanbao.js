@@ -1,22 +1,20 @@
 // pages/index/huanbao.js
+let common = require('../../utils/common.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list: [
-      { "title": '认为只用植物就能清除空气污染', "lai": '未知', "author": 'admin ', 'time': '2016.04.03', 'id': '1' },
-      { "title": '装修完后为什么要做室内污染治理？', "lai": '未知', "author": 'admin ', 'time': '2016.04.03', 'id': '2' },
-      { "title": '认为只用植物就能清除空气污染', "lai": '未知', "author": 'admin ', 'time': '2016.04.03', 'id': '3'},
-      ]
+    list: [],
+    page: 1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getinit()
   },
 
   /**
@@ -51,14 +49,17 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    this.setData({
+      page: this.data.page + 1
+    })
+    this.getinit()
   },
 
   /**
@@ -72,6 +73,53 @@ Page({
     let nowid = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: `hdetails?id=${nowid}`
+    })
+  },
+  getinit: function(){
+    wx.showLoading({
+      title: '加载中',
+    })
+    let _this = this;
+    wx.request({
+      url: common.api +'knowledge/index', //仅为示例，并非真实的接口地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      data: {
+        page: _this.data.page
+      },
+      success: function (res) {
+        wx.hideLoading()
+        console.log(res)
+        let _data = res.data
+        if (_data.status == 200){
+          if (_data.data.length>0){
+            _this.setData({
+              list: _this.data.list.concat(_data.data)
+            })
+          }else{
+            wx.showToast({
+              title:'已加载所有数据',
+              icon: 'none',
+              duration: 2000
+            })
+          }          
+        }else{
+          wx.showToast({
+            title: _data.message,
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      },
+      fail: function(err){
+        wx.hideLoading()
+        wx.showToast({
+          title: '请求失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
     })
   }
 })

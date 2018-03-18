@@ -1,9 +1,9 @@
 <view class='details'>
-  <view class='d-title'>文章标题全部显示文章标题全部显示文章标题全部显示</view>
-  <view class='d-desc'><text class='i-lai'>来源：</text><text class='i-author'>作者：     </text><text class='i-time'>发表时间：</text></view>
+  <view class='d-title'>{{content.title}}</view>
+  <view class='d-desc'><!---<text class='i-lai'>来源：</text>--><text class='i-author'>作者：   {{content.author}}  </text><text class='i-time'>发表时间：{{content.updated_at}}</text></view>
 </view>
 <view class='d-text'>
-  <view>室内装修污染是指因装修行为对室内环境所产生的污染。它是近年来随着人们生活水平的提高对室内空间进行装修过程中出现的一种新污染，主要是由于人们在室内装修过程中采用不合格装修材料及不合理的设</view>
-  <image src="../../img/img-banner-aboutus@2x.png"/>
-  <view>室内装修污染是指因装修行为对室内环境所产生的污染。它是近年来随着人们生活水平的提高对室内空间进行装修过程中出现的一种新污染，主要是由于人们在室内装修过程中采用不合格装修材料及不合理的设</view>
+  <view>{{content.content}}</view>
+  <!-- <image src="../../img/img-banner-aboutus@2x.png"/>
+  <view>室内装修污染是指因装修行为对室内环境所产生的污染。它是近年来随着人们生活水平的提高对室内空间进行装修过程中出现的一种新污染，主要是由于人们在室内装修过程中采用不合格装修材料及不合理的设</view> -->
 </view>

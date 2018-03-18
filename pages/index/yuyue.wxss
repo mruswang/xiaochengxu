@@ -78,6 +78,7 @@ textarea{
   margin-top: 30rpx;
   font-size: 30rpx;
   color: #333;
+  width: calc(100% - 42rpx)
 }
 .submit{
   padding: 60rpx;
@@ -93,12 +94,18 @@ textarea{
   border-radius: 5px;
   flex: 1;
   margin: 15rpx;
-}
-.submit text:first-child{
   color: #828282;
   background-color: #BDBDBD;
 }
-.submit text:last-child{
+
+.submit button{
+  text-align: center;
   color: #fff;
+  flex: 1;
+  font-size: 30rpx;
   background-color: #0B8031;
+  display: block;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  border-radius: 5px;
 }

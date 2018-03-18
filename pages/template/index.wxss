@@ -10,6 +10,7 @@ page{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: #fff;
 }
 .shop-img text{
   display: block;

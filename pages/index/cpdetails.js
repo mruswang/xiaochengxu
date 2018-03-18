@@ -1,18 +1,44 @@
 // pages/index/cpdetails.js
+let common = require('../../utils/common.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    content: {},
+    id: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     console.log(options)
+    let _this = this;
+    let _id = options.id
+    _this.setData({
+      id: _id
+    })
+    wx.request({
+      url: common.api + 'goods/detail', //仅为示例，并非真实的接口地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      data: {
+        id: _id
+      },
+      success: function (res) {
+        wx.hideLoading()
+        console.log(res)
+        _this.setData({
+          content: res.data.data
+        })
+      }
+    })
   },
 
   /**
@@ -65,7 +91,7 @@ Page({
   },
   zixun:function(){
     wx.navigateTo({
-      url: 'zixun'
+      url: 'zixun?id='+this.data.id
     })
   }
 })
