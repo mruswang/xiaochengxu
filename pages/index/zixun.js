@@ -6,7 +6,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id: ''
+    id: '',
+    is_pay: 2,
+    name: '',
+    price: ''
   },
 
   /**
@@ -14,7 +17,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id
+      id: options.id,
+      name: options.name,
+      price: options.price
     })
   },
 
@@ -112,13 +117,17 @@ Page({
       title: '提交中',
     })
     wx.request({
-      url: common.api + 'agent/addagent', //仅为示例，并非真实的接口地址
+      url: common.api + 'order/addorder', //仅为示例，并非真实的接口地址
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
       data: {
         real_name: nickname,
         phone: phone,
         email: email,
-        desc: desc,
-        id: _this.data.id
+        remarks: desc,
+        goods_id: _this.data.id,
+        is_pay: _this.data.is_pay
       },
       method: 'POST',
       success: function (res) {

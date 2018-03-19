@@ -63,6 +63,7 @@ textarea{
   margin-top: 30rpx;
   font-size: 30rpx;
   color: #333;
+  width:calc(100% - 42rpx);
 }
 .submit{
   padding: 60rpx;

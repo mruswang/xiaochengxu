@@ -64,6 +64,9 @@ page{
    padding:20rpx 30rpx;
    background-color: #fff;
 }
+.xi-address input{
+  font-size: 30rpx;
+}
 .bzh{
   padding:20rpx 30rpx;
     background-color: #fff;

@@ -91,12 +91,12 @@ Page({
   },
   zixun:function () {
     wx.navigateTo({
-      url: 'zixun?id='+ this.data.id
+      url: `zixun?id=${this.data.id}&name=${this.data.content.name}&price=${this.data.content.price}`
     })
   },
   yuyue: function () {
     wx.navigateTo({
-      url: 'yuyue?id=' + this.data.id
+      url: `yuyue?id=${this.data.id}&name=${this.data.content.name}&price=${this.data.content.price}`
     })
   }
 })

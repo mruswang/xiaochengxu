@@ -7,15 +7,22 @@ Page({
    */
   data: {
     region: [],
-    id: ''
+    id: '',
+    type: 2,
+    name: '',
+    price:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      id: options.id
+    let _this = this;
+    let _id = options.id
+    _this.setData({
+      id: _id,
+      name: options.name,
+      price: options.price
     })
   },
 
@@ -132,14 +139,18 @@ Page({
       title: '提交中',
     })
     wx.request({
-      url: common.api + 'agent/addagent', //仅为示例，并非真实的接口地址
+      url: common.api + 'order/addorder', //仅为示例，并非真实的接口地址
       data: {
         real_name: nickname,
         phone: phone,
         address: address,
-        desc: desc,
-        region: region,
-        id: _this.data.id
+        remarks: desc,
+        region: region[2],
+        provice: region[0],
+        city: region[1],
+        goods_id: _this.data.id,
+        is_pay: _this.data.type,
+        amount: _this.data.price
       },
       method: 'POST',
       success: function (res) {

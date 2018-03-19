@@ -1,10 +1,10 @@
 <view>
   <view class='fuwu'>已选服务</view>
-  <view class='fuwu-text'>甲醛治理</view>
+  <view class='fuwu-text'>{{name}}</view>
 </view>
 <view>
   <view class='fuwu'>服务金额</view>
-  <view class='fuwu-red'>¥115</view>
+  <view class='fuwu-red'>¥{{price}}</view>
 </view>
 <form bindsubmit="formSubmit">
 <view>
