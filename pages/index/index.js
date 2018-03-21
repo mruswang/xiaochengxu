@@ -1,15 +1,9 @@
 //index.js
 //获取应用实例
-
+let common = require('../../utils/common.js')
 Page({
   data: {
-    imgUrls: [
-      '../../img/img-banner-aboutus@2x.png',
-      '../../img/img-banner-huanbaozhishi@2x.png',
-      '../../img/img-banner-shouye1@2x.png',
-      '../../img/img-banner-shouye2@2x.png',
-      '../../img/img-banner-shouye3@2x(1).png'
-    ],
+    imgUrls: [],
     indicatorDots: true,
     indicatorColor: "#fff",//滑动圆点颜色  
     indicatorActiveColor: "#FDBF38", //当前圆点颜色  
@@ -23,13 +17,15 @@ Page({
       { "classname": 'item-h', 'imgurl': '../../img/icon-huanbaozhishi@2x.png', 'name': '环保知识' },
       { "classname": 'item-g', 'imgurl': '../../img/icon-guanyuwom@2x.png', 'name': '关于我们' },
       { "classname": 'item-d', 'imgurl': '../../img/icon-zhaodaili@2x.png', 'name': '诚招代理' }
-    ]
+    ],
+    connct: {}
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(wx.getStorageSync('use_id'))
+    this.getconnect()
+    this.getlunbo()
   },
   go:function(e){
     let nowclass = e.currentTarget.dataset.classname
@@ -58,5 +54,59 @@ Page({
         url: 'daili'
       })
     }
+  },
+  callphone:function(e){
+    let phone = e.target.dataset.phone
+    wx.makePhoneCall({
+      phoneNumber: phone
+    })
+  },
+  getconnect:function(){
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: common.api + 'connect/index', 
+      success: function (res) {
+        wx.hideLoading()
+        let _data = res.data
+        if (_data.status == 200){
+          _this.setData({
+            connct: _data.data[0]
+          })
+        }else{
+          wx.showToast({
+            title: '请求失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
+  getlunbo: function () {
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: common.api + 'banner/index', 
+      success: function (res) {
+        let _data = res.data
+        wx.hideLoading()
+        if (_data.status == 200) {
+          _this.setData({
+            imgUrls: _data.data
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
   }
 })

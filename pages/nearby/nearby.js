@@ -1,4 +1,4 @@
-// pages/index/daili.js
+// pages/nearby/nearby.js
 let common = require('../../utils/common.js')
 Page({
 
@@ -6,14 +6,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isSubmit: false
+    long: '',
+    lat: '',
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.grtaddress()
   },
 
   /**
@@ -55,7 +57,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+    
   },
 
   /**
@@ -64,62 +66,57 @@ Page({
   onShareAppMessage: function () {
   
   },
-  formSubmit: function (e) {
+  //获取定位
+  grtaddress:function(){
     let _this = this
-    let use_id = wx.getStorageSync('use_id')
-    let nickname = e.detail.value.nickname;
-    let phone = e.detail.value.phone;
-    let regn = /^([\u4E00-\u9FA5]+|[a-zA-Z]+)$/
-    let regp = /^(1+\d{10})$/
-    if (!regn.test(nickname)){
-      wx.showToast({
-        title: '请保证姓名的真实性',
-        icon: 'none',
-        duration: 2000
-      })
-      return false;
-    }
-    if (!regp.test(phone)) {
-      wx.showToast({
-        title: '请保证电话号码的真实性',
-        icon: 'none',
-        duration: 2000
-      })
-      return false;
-    }
+    wx.getLocation({
+      type: 'wgs84',
+      success: function (res) {
+        if (res.errMsg == 'getLocation:ok'){
+          let latitude = res.latitude
+          let longitude = res.longitude
+          _this.setData({
+            long: longitude ,
+            lat: latitude
+          })
+          _this.getneary()
+        }
+        // var speed = res.speed
+        // var accuracy = res.accuracy
+      }
+    })
+  },
+  selectItem:function(e){
+    let _id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `ndetails?id=${_id}&long=${this.data.long}&lat=${this.data.lat}`
+    })
+  },
+  getneary:function(){
+    let _this = this;
     wx.showLoading({
-      title: '提交中',
+      title: '加载中',
     })
     wx.request({
-      url: common.api + 'agent/addagent', //仅为示例，并非真实的接口地址
+      url: common.api + 'shop/index',
       data: {
-        real_name: nickname,
-        phone: phone,
-        id: use_id
+        lon: _this.data.long,
+        lat: _this.data.lat
       },
-      method: 'POST',
       success: function (res) {
         wx.hideLoading()
-        let _data = res.data;
+        let _data = res.data
         if (_data.status == 200) {
           _this.setData({
-            isSubmit: true
+            list: _data.data
           })
-        }else{
+        } else {
           wx.showToast({
-            title: res.mesaage,
+            title: _data.message,
             icon: 'none',
             duration: 2000
           })
         }
-      },
-      fail: function(){
-        wx.hideLoading()
-        wx.showToast({
-          title: '请求失败',
-          icon: 'none',
-          duration: 2000
-        })
       }
     })
   }

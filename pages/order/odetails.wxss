@@ -23,6 +23,10 @@ page{
 .d-green{
   background-color: #0B8031;
 }
+.t-red{
+  color: #F20A30;
+  display: inline-block !important;
+}
 .bg-gary{
   color: #828282;
   font-size: 24rpx;
@@ -84,4 +88,15 @@ page{
 }
 .bottom text{
   color: #0B8031;
+}
+.mashang{
+  background-color: #0B8031;
+  color: #fff;
+  padding: 35rpx 0;
+  text-align: center;
+  font-size: 30rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }

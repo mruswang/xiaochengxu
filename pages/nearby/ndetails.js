@@ -1,4 +1,4 @@
-// pages/index/jqzl.js
+// pages/nearby/ndetails.js
 let common = require('../../utils/common.js')
 Page({
 
@@ -6,44 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    content: {},
-    id: ''
+    content: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中',
-    })
     let _this = this;
     let _id = options.id
-    _this.setData({
-      id: _id
-    })
-    wx.request({
-      url: common.api + 'goods/detail', 
-      data: {
-        id: _id
-      },
-      success: function (res) {
-        wx.hideLoading()
-        let _data = res.data
-        if(_data.status == 200){
-          _this.setData({
-            content: _data.data
-          })
-        }else{
-          wx.showToast({
-            title: '请求失败',
-            icon: 'none',
-            duration: 2000
-          })
-        }
-        
-      }
-    })
+    let _long = options.long
+    let _lat = options.lat
+    this.getinit(_id, _long, _lat)
   },
 
   /**
@@ -94,14 +68,30 @@ Page({
   onShareAppMessage: function () {
   
   },
-  zixun:function () {
-    wx.navigateTo({
-      url: `zixun?id=${this.data.id}&name=${this.data.content.name}&price=${this.data.content.price}`
+  callphone: function (e) {
+    let phone = e.target.dataset.phone
+    wx.makePhoneCall({
+      phoneNumber: phone
     })
   },
-  yuyue: function () {
-    wx.navigateTo({
-      url: `yuyue?id=${this.data.id}&name=${this.data.content.name}&price=${this.data.content.price}`
+  getinit: function (_id,_long, _lat) {
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: common.api + 'shop/index',
+      data: {
+        id: _id,
+        lon: _long,
+        lat:_lat
+      },
+      success: function (res) {
+        wx.hideLoading()
+        _this.setData({
+          content: res.data.data[0]
+        })
+      }
     })
   }
 })

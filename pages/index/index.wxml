@@ -4,7 +4,7 @@
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"       indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}">
     <block wx:for="{{imgUrls}}" wx:key="index">
       <swiper-item>
-        <image src="{{item}}" class="slide-image" />
+        <image src="{{item.banner}}" class="slide-image" />
       </swiper-item>
     </block>
   </swiper>
@@ -23,7 +23,7 @@
     <text>全国热线:</text>
   </view>
   <view class='p-num'>
-    <text>0833-3858899</text>
-    <text>13388260303</text>
+    <text bindtap='callphone' data-phone='{{connct.cellphone}}'>{{connct.cellphone}}</text>
+    <text bindtap='callphone' data-phone='{{connct.phone}}'>{{connct.phone}}</text>
   </view>
 </view>

@@ -1,32 +1,41 @@
-<view class='d-top d-red'>
+<view class='d-top d-red' wx:if="{{content.pay_status == 10}}">
   <text>未付款</text>
-  <image src="../../img/icon-weifukuan@2x.png"/>
+  <image  src="../../img/icon-weifukuan@2x.png"/>
+</view>
+<view class='d-top d-yellow' wx:elif="{{content.pay_status == 20}}">
+  <text>已付款</text>
   <image src="../../img/icon-yifukuan@2x.png"/>
+</view>
+<view class='d-top d-green' wx:else>
+  <text>已完成</text>
   <image src="../../img/icon-yiwancheng@2x.png"/>
 </view>
 <view class='bg-gary'>联系人信息</view>
 <view class='p-info'>
-  <text>王一一    12312341234</text>
-  <text>四川省成都市高新区环球中心1栋2单元2202</text>
+  <text>{{content.real_name}}     {{content.phone}}</text>
+  <text wx:if="{{content.type == 1}}">{{content.provice}}{{content.city}}{{content.region}}{{content.address}}</text>
 </view>
 <view class='bg-gary'>商品信息</view>
 <view class='shop'>
   <view>
-    <image src="../../img/img-banner-aboutus@2x.png"/>
+    <image src="{{content.goods.pic}}"/>
   </view>
   <view class='shop-right'>
-    <text>甲醛治理</text>
-    <text>¥115</text>
+    <text>{{content.goods.name}}</text>
+    <text>¥{{content.goods.price}}</text>
   </view>
 </view>
 <view class='bg-gary'>订单信息</view>
 <view class='o-info'>
-  <text>订单编号：13762391740</text>
-  <text>下单时间：2018.10.10 12:08</text>
-  <text>订单金额：¥99.10</text>
-  <text>付款时间：2018.10.11 12:11</text>
-  <text>完成时间：2018.10.15 12:00</text>
+  <text>订单编号：{{content.number}}</text>
+  <text>下单时间：{{content.created_at}}</text>
+  <text>订单金额：¥{{content.goods.price}}</text>
+  <text wx:if="{{content.pay_status == 10}}">付款时间：<text class='t-red'>代付款</text></text>
+  <text wx:else>付款时间：{{content.pay_time}}</text>
+  <text wx:if="{{content.pay_status > 10}}">完成时间：{{content.finish_time}}</text>
 </view>
 <view class='bottom'>
-对订单有疑问？联系我们：<text>0833-3858899</text>
+对订单有疑问？联系我们：<text bindtap='callphone' data-phone='{{connct.cellphone}}'>{{connct.cellphone}}</text>
 </view>
+
+<view wx:if="{{content.pay_status == 10}}" class='mashang' bindtap='pay' data-ordersn='{{content.number}}' data-price='{{content.goods.price}}'>立即支付</view>

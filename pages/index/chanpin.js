@@ -103,17 +103,13 @@ Page({
     })
     let _this = this;
     wx.request({
-      url: common.api + 'goods/index', //仅为示例，并非真实的接口地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
+      url: common.api + 'goods/index',
       data: {
         page: _this.data.page,
         cat_id: _this.data.currentid
       },
       success: function (res) {
         wx.hideLoading()
-        console.log(res)
         let _data = res.data
         if (_data.status == 200) {
           if (_data.data.length > 0) {
@@ -151,13 +147,9 @@ Page({
     })
     let _this = this;
     wx.request({
-      url: 'https://dev.halsoft.net/v1/goods/catgary', //仅为示例，并非真实的接口地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
+      url: common.api +'goods/catgary',
       success: function (res) {
         wx.hideLoading()
-        console.log(res)
         let _data = res.data
         if (_data.status == 200) {
           _this.setData({

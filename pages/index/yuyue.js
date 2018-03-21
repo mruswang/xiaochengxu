@@ -8,7 +8,7 @@ Page({
   data: {
     region: [],
     id: '',
-    type: 2,
+    is_pay: 1,
     name: '',
     price:''
   },
@@ -75,7 +75,6 @@ Page({
   
   },
   bindRegionChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       region: e.detail.value
     })
@@ -87,7 +86,6 @@ Page({
   },
   formSubmit: function (e) {
     let _this = this
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let nickname = e.detail.value.nickname;
     let phone = e.detail.value.phone;
     let address = e.detail.value.address;
@@ -138,8 +136,9 @@ Page({
     wx.showLoading({
       title: '提交中',
     })
+    let use_id = wx.getStorageSync('use_id')
     wx.request({
-      url: common.api + 'order/addorder', //仅为示例，并非真实的接口地址
+      url: common.api + 'order/addorder',
       data: {
         real_name: nickname,
         phone: phone,
@@ -149,24 +148,50 @@ Page({
         provice: region[0],
         city: region[1],
         goods_id: _this.data.id,
-        is_pay: _this.data.type,
-        amount: _this.data.price
+        is_pay: _this.data.is_pay,
+        amount: _this.data.price,
+        useid: use_id
       },
       method: 'POST',
       success: function (res) {
         wx.hideLoading()
-        console.log(res)
         let _data = res.data;
         if (_data.status == 200) {
-          wx.showToast({
-            title: '提交成功！',
-            icon: 'success',
-            duration: 2000
+          wx.requestPayment({
+            'timeStamp': _data.info.timeStamp,
+            'nonceStr': _data.info.nonceStr,
+            'package': _data.info.package,
+            'signType': _data.info.signType,
+            'paySign': _data.info.paySign,
+            'success': function (res) {
+              if (res.errMsg == "requestPayment:ok"){
+                wx.showToast({
+                  title: '支付成功！',
+                  icon: 'success',
+                  duration: 2000
+                })
+                setTimeout(() => {
+                  wx.navigateBack({
+                    delta: 1
+                  })
+                }, 2000)
+              }else{
+                wx.showToast({
+                  title: '支付失败！',
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+            },
+            'fail': function (res) {
+              wx.showToast({
+                title: '支付失败！',
+                icon: 'none',
+                duration: 2000
+              })
+            }
           })
         }
-      },
-      fail: function () {
-        wx.hideLoading()
       }
     })
   }

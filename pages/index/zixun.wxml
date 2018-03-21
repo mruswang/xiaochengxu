@@ -1,8 +1,8 @@
 <view class='concat'>
   <view class='fuwu'>服务热线</view>
   <view class='c-num'>
-    <text>电话：0833-3858899</text>
-    <text>手机：13388260303</text>
+    <text bindtap='callphone' data-phone='{{connct.cellphone}}'>电话：{{connct.cellphone}}</text>
+    <text bindtap='callphone' data-phone='{{connct.phone}}'>手机：{{connct.phone}}</text>
   </view>
 </view>
 <form bindsubmit="formSubmit">

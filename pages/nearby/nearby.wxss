@@ -1,0 +1,35 @@
+/* pages/nearby/nearby.wxss */
+.n-item{
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1px solid #E0E0E0;
+}
+.n-i-l{
+  width: 200rpx;
+  height: 160rpx;
+  flex: 0 0 200rpx;
+}
+.n-i-r{
+  flex: 1;
+  margin-left: 10rpx;
+}
+.n-i-r-name{
+  font-size: 30rpx;
+  color: #333;
+}
+.n-i-r-b{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 45rpx;
+}
+.n-i-r-b image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 5rpx;
+}
+.n-i-r-b text{
+  font-size: 24rpx;
+  color: #828282;
+}

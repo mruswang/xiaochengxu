@@ -13,7 +13,9 @@
     "pages/index/jqzl",
     "pages/index/yuyue",
     "pages/template/index",
-    "pages/order/odetails"
+    "pages/order/odetails",
+    "pages/nearby/nearby",
+    "pages/nearby/ndetails"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -32,6 +34,12 @@
         "text": "首页",
         "iconPath": "./img/icon-shouye@2x.png",
         "selectedIconPath": "./img/icon-shouye-green@2x.png"
+      },
+      {
+        "pagePath": "pages/nearby/nearby",
+        "text": "附近商家",
+        "iconPath": "./img/icon-fujinshangjia-gray.png",
+        "selectedIconPath": "./img/icon-fujinshangjia-green.png"
       },
       {
         "pagePath": "pages/order/order",

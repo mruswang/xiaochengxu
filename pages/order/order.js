@@ -8,9 +8,9 @@ Page({
     islogin: true,
     navlist: [
       { 'status': 0, 'name': '全部'},
-      { 'status': 1, 'name': '未付款' },
-      { 'status': 2, 'name': '已付款' },
-      { 'status': 3, 'name': '已完成' }
+      { 'status': 10, 'name': '未付款' },
+      { 'status': 20, 'name': '已付款' },
+      { 'status': 30, 'name': '已完成' }
     ],
     navid: 0,
     list: [],
@@ -21,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.getinit()
   },
 
   /**
@@ -49,7 +49,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    this.getinit()
+    
   },
 
   /**
@@ -90,6 +90,68 @@ Page({
       url: `odetails?id=${id}`
     })
   },
+  pay:function(e){
+    let _this= this
+    let ordersn = e.currentTarget.dataset.ordersn
+    let price = e.currentTarget.dataset.price
+    let use_id = wx.getStorageSync('use_id')
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: common.api + 'order/orderpay', 
+      method: 'POST',
+      data: {
+        useid: use_id,
+        ordersn: ordersn,
+        price: price
+      },
+      success: function (res) {
+        wx.hideLoading()
+        let _data = res.data;
+        if (_data.status == 200) {
+          wx.requestPayment({
+            'timeStamp': _data.info.timeStamp,
+            'nonceStr': _data.info.nonceStr,
+            'package': _data.info.package,
+            'signType': _data.info.signType,
+            'paySign': _data.info.paySign,
+            'success': function (res) {
+              if (res.errMsg == "requestPayment:ok") {
+                wx.showToast({
+                  title: '支付成功！',
+                  icon: 'success',
+                  duration: 2000
+                })
+               _this.getinit()
+              } else {
+                wx.showToast({
+                  title: '支付失败！',
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+            },
+            'fail': function (res) {
+              wx.showToast({
+                title: '支付失败！',
+                icon: 'none',
+                duration: 2000
+              })
+            }
+          })
+        }
+      },
+      fail: function (err) {
+        wx.hideLoading()
+        wx.showToast({
+          title: '请求失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+  },
   getinit:function(){
     wx.showLoading({
       title: '加载中',
@@ -97,18 +159,14 @@ Page({
     let _this = this;
     let use_id = wx.getStorageSync('use_id')
     wx.request({
-      url: common.api + 'goods/index', //仅为示例，并非真实的接口地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
+      url: common.api + 'order/index', 
       data: {
         page: _this.data.page,
         status: _this.data.navid,
-        userid: use_id
+        id: use_id
       },
       success: function (res) {
         wx.hideLoading()
-        console.log(res)
         let _data = res.data
         if (_data.status == 200) {
           if (_data.data.length > 0) {

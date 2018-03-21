@@ -9,7 +9,8 @@ Page({
     id: '',
     is_pay: 2,
     name: '',
-    price: ''
+    price: '',
+    connct: {}
   },
 
   /**
@@ -17,10 +18,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      id: options.id,
-      name: options.name,
-      price: options.price
+      id: options.id
     })
+    this.getconnect()
   },
 
   /**
@@ -71,9 +71,38 @@ Page({
   onShareAppMessage: function () {
   
   },
+  getconnect: function () {
+    let _this = this;
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      url: common.api + 'connect/index',
+      success: function (res) {
+        let _data = res.data
+        wx.hideLoading()
+        if (_data.status == 200) {
+          _this.setData({
+            connct: _data.data[0]
+          })
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }
+    })
+  },
+  callphone: function (e) {
+    let phone = e.target.dataset.phone
+    wx.makePhoneCall({
+      phoneNumber: phone
+    })
+  },
   formSubmit: function (e) {
     let _this = this
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
     let nickname = e.detail.value.nickname;
     let phone = e.detail.value.phone;
     let email = e.detail.value.email;
@@ -117,10 +146,7 @@ Page({
       title: '提交中',
     })
     wx.request({
-      url: common.api + 'order/addorder', //仅为示例，并非真实的接口地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
+      url: common.api + 'order/addorder', 
       data: {
         real_name: nickname,
         phone: phone,
@@ -132,7 +158,6 @@ Page({
       method: 'POST',
       success: function (res) {
         wx.hideLoading()
-        console.log(res)
         let _data = res.data;
         if (_data.status == 200) {
           wx.showToast({
@@ -140,10 +165,18 @@ Page({
             icon: 'success',
             duration: 2000
           })
+          setTimeout(()=>{
+            wx.navigateBack({
+              delta: 1
+            })
+          },2000)
+        }else{
+          wx.showToast({
+            title: res.mesaage,
+            icon: 'none',
+            duration: 2000
+          })
         }
-      },
-      fail: function () {
-        wx.hideLoading()
       }
     })
   }

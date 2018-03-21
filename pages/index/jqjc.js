@@ -14,30 +14,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     wx.showLoading({
       title: '加载中',
     })
-    console.log(options)
     let _this = this;
     let _id = options.id
     _this.setData({
       id: _id
     })
     wx.request({
-      url: common.api + 'goods/detail', //仅为示例，并非真实的接口地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
+      url: common.api + 'goods/detail',
       data: {
         id: _id
       },
       success: function (res) {
         wx.hideLoading()
-        console.log(res)
-        _this.setData({
-          content: res.data.data
-        })
+        let _data = res.data
+        if (_data.status == 200){
+          _this.setData({
+            content: _data.data
+          })
+        }else{
+          wx.showToast({
+            title: '请求失败',
+            icon: 'none',
+            duration: 2000
+          })
+        }
       }
     })
   },

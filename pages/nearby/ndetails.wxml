@@ -1,0 +1,62 @@
+<view>
+  <view class='nd-top'>
+    <image class='n-i-bg' src="../../img/shangjiaxiangqing.png" />
+    <image class='n-i-l' wx:if="{{content.pics != ''}}" src="{{content.pics}}" />
+    <image class='n-i-l' wx:else src="../../img/tupian1.png" />
+    <view class='n-i-r'>
+      <text>{{content.name}}</text>
+      <view class='n-i-r-b' wx:if="{{content.star == 1}}">
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+        </view>
+         <view class='n-i-r-b' wx:elif="{{content.star == 2}}">
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+        </view>
+         <view class='n-i-r-b' wx:elif="{{content.star == 3}}">
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+        </view>
+         <view class='n-i-r-b' wx:elif="{{content.star == 4}}">
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-gray.png"/>
+        </view>
+         <view class='n-i-r-b' wx:else>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+        </view>
+    </view>
+  </view>
+  <view>
+    <view class='de-item'>
+      <image class='de-address' src='../../img/dizhi.png'/>
+      <text class='de-green'>{{content.disdance}}km</text>
+      <text> {{content.address}} </text>
+    </view>
+    <view class='de-item'>
+      <image class='de-phone' src='../../img/dianpulianxidianhua.png'/>
+      <text>联系电话：</text>
+      <text bindtap='callphone' data-phone='{{content.phone}}'>{{content.phone}}</text>
+    </view>
+    <view class='de-item'>
+      <image class='de-time' src='../../img/yingyeshijian.png'/>
+      <text>营业时间：</text>
+      <text>{{content.open_time}}</text>
+    </view>
+  </view>
+</view>

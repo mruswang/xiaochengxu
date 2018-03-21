@@ -1,0 +1,47 @@
+<view>
+  <view wx:for="{{list}}" wx:key="{{index}}" class='n-item' data-id='{{item.id}}' bindtap='selectItem'>
+    <image class='n-i-l' wx:if="{{item.pics != ''}}" src="{{item.pics}}" />
+    <image class='n-i-l' wx:else src="../../img/tupian1.png" />
+    <view class='n-i-r'>
+      <text class='n-i-r-name'>{{item.name}}</text>
+      <view class='n-i-r-b'>
+        <view wx:if="{{item.star == 1}}">
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+        </view>
+         <view wx:elif="{{item.star == 2}}">
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+        </view>
+         <view wx:elif="{{item.star == 3}}">
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-gray.png"/>
+          <image src="../../img/star-gray.png"/>
+        </view>
+         <view wx:elif="{{item.star == 4}}">
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-gray.png"/>
+        </view>
+         <view wx:else>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+          <image src="../../img/star-yellow.png"/>
+        </view>
+        <text>{{item.disdance}}km</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -9,23 +9,25 @@
   <image class='bottom' src="../../img/img-dengluzhuce-bk@2x.png"/>
 </view>
 <view>
-  <view class='item'>
+  <view class='item' wx:for="{{list}}"  wx:key="{{index}}">
     <view class='i-top'>
-      <text>订单编号：136498102170937</text>
-      <text class='i-red'>未付款</text>
+      <text>订单编号：{{item.number}}</text>
+      <text class='i-red' wx:if="{{item.pay_status == 10}}">未付款</text>
+      <text wx:elif="{{item.pay_status == 20}}">已付款</text>
+      <text wx:else>已完成</text>
     </view>
     <view class='i-middle'>
       <view>
-        <image src="../../img/img-banner-aboutus@2x.png"/>
+        <image src="{{item.goods.pic}}"/>
       </view>
       <view class='i-m-right'>
-        <text>甲醛治理</text>
-        <text>¥115</text>
+        <text>{{item.goods.name}}</text>
+        <text>¥{{item.goods.price}}</text>
       </view>
     </view>
     <view class='i-bottom'>
-        <text bindtap='pay' class='pay'>立即支付</text>
-        <text bindtap='check' class='check'>查看详情</text>
+        <text bindtap='pay' class='pay' data-ordersn='{{item.number}}' data-price='{{item.goods.price}}' wx:if="{{item.pay_status == 10}}">立即支付</text>
+        <text bindtap='check' class='check' data-id='{{item.id}}'>查看详情</text>
       </view>
   </view>
 </view>

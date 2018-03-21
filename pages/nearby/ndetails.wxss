@@ -1,0 +1,67 @@
+/* pages/nearby/ndetails.wxss */
+.nd-top{
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 240rpx;
+  padding: 0 30rpx;
+}
+.n-i-bg{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:-1;
+  height: 240rpx;
+}
+.n-i-l{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  flex: 0 0 120rpx;
+}
+.n-i-r{
+  flex: 1;
+  margin-left: 30rpx;
+}
+.n-i-r text{
+  font-size: 30rpx;
+  color: #fff;
+}
+.n-i-r-b{
+  display: flex;
+  align-items: center;
+  margin-top: 45rpx;
+}
+.n-i-r-b image{
+  width: 26rpx;
+  height: 26rpx;
+  margin-right: 5rpx;
+}
+.de-item{
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  color: #828282;
+  border-bottom: 1px solid #E0E0E0;
+  padding: 26rpx 30rpx;
+}
+.de-item image{
+  margin-right: 10rpx;
+}
+.de-address{
+  width: 27rpx;
+  height: 35rpx;
+}
+.de-phone{
+   width: 27rpx;
+  height: 29rpx;
+}
+.de-time{
+   width: 28rpx;
+  height: 28rpx;
+}
+.de-green{
+  color: #0B8031;
+  font-size: 26rpx;
+}

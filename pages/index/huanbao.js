@@ -69,7 +69,6 @@ Page({
   
   },
   go: function (e) {
-    console.log(e)
     let nowid = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: `hdetails?id=${nowid}`
@@ -81,16 +80,12 @@ Page({
     })
     let _this = this;
     wx.request({
-      url: common.api +'knowledge/index', //仅为示例，并非真实的接口地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
+      url: common.api +'knowledge/index', 
       data: {
         page: _this.data.page
       },
       success: function (res) {
         wx.hideLoading()
-        console.log(res)
         let _data = res.data
         if (_data.status == 200){
           if (_data.data.length>0){
